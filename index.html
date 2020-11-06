@@ -12,22 +12,19 @@
     <main class='container'>
         <div id='startpage'>
             <h1>This quiz tests your knowledge of Java script, click start to begin!</h1>
-            <button id='startquiz'>Start quiz</button>
-            
-        </div>
-        <div id="timer">Time Remaining: </div>
-        <div id=quiz>
-            
-
-            <div id='questions'><p>Questions placeholder</p></div>
-            <button id='a' onclick='checkAnswer("a")'>A</button>
-            <button id='b' onclick='checkAnswer("b")'>B</button>
-            <button id='c' onclick='checkAnswer("c")'>C</button>
-            <button id='d' onclick='checkAnswer("d")'>D</button>
-            <div id='results'></div>
+            <button id='startquiz' onclick="startQuiz()">Start quiz</button>
         </div>
     </main>
 
+    <div id="questionBox">
+        <div id="timer">Time Remaining: </div>
+        <p id="questionText"></p>
+
+        <button id="optionA" onclick="nextQuestion()"></button>
+        <button id="optionB" onclick="nextQuestion()"></button>
+        <button id="optionC" onclick="nextQuestion()"></button>
+        <button id="optionD" onclick="nextQuestion()"></button>
+    </div>
 
     <script src="script.js"> </script>
 </body>
