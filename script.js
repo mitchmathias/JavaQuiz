@@ -1,6 +1,9 @@
 var myTimer = document.querySelector("#timer");
+var questionBox = document.querySelector("#questionBox");
 var secondsLeft = 60;
 var currentQuestion = 0;
+var score = "";
+var scoresArray = JSON.parse(localStorage.getItem("highscores")) || []
 
 
 function setTime() {
@@ -23,7 +26,7 @@ var questionIndex = [
             optionD: "Repeat variable",
         },
 
-        correctAnswer: 3
+        correctAnswer: "optionC"
     },
 
     {
@@ -35,7 +38,7 @@ var questionIndex = [
             optionD: "Hours",
         },
 
-        correctAnswer: 0
+        correctAnswer: "optionA"
     },
 
     {
@@ -47,7 +50,7 @@ var questionIndex = [
             optionD: "<  >",
         },
 
-        correctAnswer: 3
+        correctAnswer: "optionC"
     },
     {
         question: "How do you link a java script page to an html file>",
@@ -58,7 +61,7 @@ var questionIndex = [
             optionD: "It is linked automatically",
         },
 
-        correctAnswer: 0
+        correctAnswer: "optionA"
     },
 
 ];
@@ -112,20 +115,21 @@ function nextQuestion() {
 
 }
 
-// function answerInput(event){
-//     if (event.target.matches("button")){
-//         event.preventDefault();
-//         if(questionIndex[currentQuestion].correctAnswer !== ParseInt
-//         (event.target.id))
-//         secondsLeft = - 10;
-//     }
-// }
 
-listEl.addEventListener("click", function(event) {
+questionBox.addEventListener("click", function (event) {
     event.preventDefault();
-    if(event.target.matches("button")) {
-      var item = document.createElement("div");
-      item.textContent = groceries[event.target.parentElement.id];
-      shoppingCartEl.append(item);
+    if (event.target.matches("button")) {
+        var userAnswer = event.target.getAttribute("id")
+        console.log(currentQuestion)
+        if (userAnswer != questionIndex[currentQuestion - 1].correctAnswer) {
+            secondsLeft -= 10
+        }
+        if (currentQuestion === questionIndex.length) {
+            score = secondsLeft
+            localStorage.setItem("highscores", JSON.stringify(score))
+            location.href="highscores.html"
+        }
     }
-  });
+});
+
+
