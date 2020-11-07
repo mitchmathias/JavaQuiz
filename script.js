@@ -127,7 +127,7 @@ questionBox.addEventListener("click", function (event) {
         if (currentQuestion === questionIndex.length) {
             score = secondsLeft
             localStorage.setItem("highscores", JSON.stringify(score))
-            location.href="highscores.html"
+            // location.href="highscores.html"
         }
     }
 });
