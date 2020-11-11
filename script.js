@@ -125,11 +125,26 @@ questionBox.addEventListener("click", function (event) {
             secondsLeft -= 10
         }
         if (currentQuestion === questionIndex.length) {
-            score = secondsLeft
-            localStorage.setItem("highscores", JSON.stringify(score))
-            // location.href="highscores.html"
+            score = secondsLeft;
+            questionBox.style.display = "none";
+            localStorage.setItem("highscores", JSON.stringify(score));
+            highscores.style.display = "block";
+
         }
+            
+        
     }
+
 });
 
+function goToHs() {
+    // logic for seeing if the high score makes it 
+
+    
+    var name = document.getElementById("nameField").value;
+    localStorage.setItem("highscoresName", JSON.stringify(name));
+    
+    event.preventDefault() 
+    document.location.href="highscores.html"
+}
 

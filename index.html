@@ -13,6 +13,7 @@
         <div id='startpage'>
             <h1>This quiz tests your knowledge of Java script, click start to begin!</h1>
             <button id='startquiz' onclick="startQuiz()">Start quiz</button>
+            <h3> <a href="highscores.html">Highscores</a></h3>
         </div>
     </main>
 
@@ -24,6 +25,15 @@
         <button id="optionB" onclick="nextQuestion()"></button>
         <button id="optionC" onclick="nextQuestion()"></button>
         <button id="optionD" onclick="nextQuestion()"></button>
+    </div>
+    <div id="highscores" class="highscores" style="display: none;">
+        <form name="myForm" onsubmit="return validateForm()" method="post">
+            Name: <input type="text" name="fname" id="nameField">
+            <input type="submit" value="Submit" onclick="goToHs()">
+        </form>
+        <!-- <form action="input" name="name" id="name"></form>
+        <button id="submit">Submit</button> -->
+
     </div>
 
     <script src="script.js"> </script>
